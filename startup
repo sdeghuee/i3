@@ -1,0 +1,8 @@
+setxkbmap -option caps:super
+wicd-gtk &
+pulseaudio --start &
+syndaemon -i 0.5 -d 
+#xinput set-prop 11 "Device Enabled" 0
+feh --bg-scale ~/.wallpaper/*
+#xinput set-prop 13 "Evdev Wheel Emulation Button" 2
+#exec ~/bin/gdrivemount
