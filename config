@@ -135,6 +135,8 @@ bindsym $mod + c exec "xterm -e terminal-parrot"
 bindsym $mod + x exec "xinput set-prop 13 'Evdev Wheel Emulation Button' 3"
 bindsym $mod + z exec "xinput set-prop 13 'Evdev Wheel Emulation Button' 2"
 
+bindsym XF86RotateWindows exec "xrandr --output LVDS1 --rotate left"
+
 for_window [title= "terminal-parrot"] floating enable
 for_window [title='display-im6'] floating enable
 ## Set theme color variables
@@ -168,5 +170,5 @@ bar {
 #for_window [title=".*Shutter.*"] floating enable
 
 ## Begin startup script
-exec ~/.config/i3/startup
+exec ~/.config/i3/startup.sh
 
