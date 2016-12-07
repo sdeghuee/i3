@@ -1,10 +1,10 @@
 ### i3 config
-# Evan Widloski - 2015-08-21 
+# Sam Deghuee - 2016-12-06 
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 ## set Modifier keys
-set $mod Mod4
-set $mod_b Mod1
+set $mod Mod4 
+set $mod_b Mod1	
 
 new_window 1pixel
 ## Set font
@@ -23,10 +23,10 @@ bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
 bindsym $mod+h focus left
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
+#bindsym $mod+Left focus left
+#bindsym $mod+Down focus down
+#bindsym $mod+Up focus up
+#bindsym $mod+Right focus right
 
 ## Moving windows
 bindsym $mod+$mod_b+j move down
@@ -119,9 +119,8 @@ bindsym $mod+apostrophe exec xterm
 bindsym XF86AudioLowerVolume exec "amixer set Master 5%-"
 bindsym XF86AudioRaiseVolume exec "amixer set Master 5%+"
 bindsym XF86AudioMute exec "amixer -D pulse sset Master toggle"
-#bindsym $mod+y exec "youtube_rockserv"
 #bindsym NoSymbol exec "toggle_mic"
-#bindsym Print exec "xfce4-screenshooter -r"
+bindsym XF86Launch1 exec "gnome-screenshot -i -a"
 #bindsym $mod+n exec nautilus
 bindcode 152 exec google-chrome
 bindsym $mod + q move scratchpad
@@ -136,6 +135,9 @@ bindsym $mod + x exec "xinput set-prop 13 'Evdev Wheel Emulation Button' 3"
 bindsym $mod + z exec "xinput set-prop 13 'Evdev Wheel Emulation Button' 2"
 
 bindsym XF86RotateWindows exec "xrandr --output LVDS1 --rotate left"
+bindsym XF86TaskPane exec "xrandr --output LVDS1 --rotate normal"
+bindsym $mod+Down exec "echo p > ~/.config/pianobar/ctl"
+bindsym $mod+Right exec "echo n > ~/.config/pianobar/ctl"
 
 for_window [title= "terminal-parrot"] floating enable
 for_window [title='display-im6'] floating enable
@@ -159,7 +161,7 @@ client.urgent           $orange $orange $black
 ## Statusbar
 bar {
     status_command i3status
-    tray_output primary
+#    tray_output primary
     position top
 }
 ## Assign Windows and workspaces
@@ -170,5 +172,6 @@ bar {
 #for_window [title=".*Shutter.*"] floating enable
 
 ## Begin startup script
+
 exec ~/.config/i3/startup.sh
 
