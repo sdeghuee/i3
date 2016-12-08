@@ -131,11 +131,11 @@ bindsym $mod + y exec octavestart.sh
 #bindsym $mod + z exec weatherfind.sh 
 bindsym $mod + c exec "xterm -e terminal-parrot"
 #Mouse control changes for changing eagle controls from pan to scroll 
-bindsym $mod + x exec "xinput set-prop 13 'Evdev Wheel Emulation Button' 3"
-bindsym $mod + z exec "xinput set-prop 13 'Evdev Wheel Emulation Button' 2"
+bindsym $mod + x exec "xinput set-prop 16 'Evdev Wheel Emulation Button' 3"
+bindsym $mod + z exec "xinput set-prop 16 'Evdev Wheel Emulation Button' 2"
 
-bindsym XF86RotateWindows exec "xrandr --output LVDS1 --rotate left"
-bindsym XF86TaskPane exec "xrandr --output LVDS1 --rotate normal"
+bindsym XF86RotateWindows exec "~/bin/grox/grox.rb +left"
+bindsym XF86TaskPane exec "onboard"
 bindsym $mod+Down exec "echo p > ~/.config/pianobar/ctl"
 bindsym $mod+Right exec "echo n > ~/.config/pianobar/ctl"
 
@@ -149,11 +149,11 @@ set $pink #e89393
 set $black #000000
 set $white #ffffff
 set $orange #f9b107
-
+set $tpblue  #8581e8
 
 ## Window Colors
 #                       Border  BG-Text Indicator
-client.focused          $blue   $blue   $black 
+client.focused          $green   $tpblue $black
 client.unfocused        $black  $black  $gray
 client.focused_inactive $black  $black  $blue
 client.urgent           $orange $orange $black
