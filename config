@@ -125,8 +125,8 @@ bindsym XF86Launch1 exec "gnome-screenshot -i -a"
 bindcode 152 exec google-chrome
 bindsym $mod + q move scratchpad
 bindsym $mod + p scratchpad show
-bindsym XF86MonBrightnessDown exec "xbacklight -dec 10"
-bindsym XF86MonBrightnessUp exec "xbacklight -inc 10"
+bindsym XF86MonBrightnessDown exec "xbacklight -dec 5"
+bindsym XF86MonBrightnessUp exec "xbacklight -inc 5"
 bindsym $mod + y exec octavestart.sh
 #bindsym $mod + z exec weatherfind.sh 
 bindsym $mod + c exec "xterm -e terminal-parrot"
