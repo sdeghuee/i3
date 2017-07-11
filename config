@@ -39,8 +39,8 @@ bindsym $mod+$mod_b+Up move up
 bindsym $mod+$mod_b+Right move right
 
 ## Splitting windows
-bindsym $mod+b split h
 bindsym $mod+v split v
+bindsym $mod+b split h
 
 ## Changing window modes
 bindsym $mod+f fullscreen
@@ -116,8 +116,10 @@ bindsym $mod+r mode "resize"
 
 ## Custom keyboard shortcuts
 bindsym $mod+apostrophe exec xterm
-bindsym XF86AudioLowerVolume exec "amixer set Master 5%-"
-bindsym XF86AudioRaiseVolume exec "amixer set Master 5%+"
+bindsym XF86AudioLowerVolume exec "pactl set-sink-volume 1 -5%" 
+# pactl for t440, amixer for other "amixer set Master 5%-"
+bindsym XF86AudioRaiseVolume exec "pactl set-sink-volume 1 +5%" 
+# pactl for t440, amixer for other "amixer set Master 5%+"
 bindsym XF86AudioMute exec "amixer -D pulse sset Master toggle"
 #bindsym NoSymbol exec "toggle_mic"
 bindsym XF86Launch1 exec "gnome-screenshot -i -a"
@@ -161,11 +163,13 @@ client.urgent           $orange $orange $black
 ## Statusbar
 bar {
     status_command i3status
-#    tray_output primary
+    tray_output primary
     position top
 }
+
+
 ## Assign Windows and workspaces
-#workspace 1 output DVI-0
+workspace 10 output DP2-3
 #workspace 2 output DVI-0
 #workspace 3 output DVI-0
 #workspace 4 output VGA-0
