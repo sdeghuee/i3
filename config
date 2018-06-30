@@ -115,10 +115,10 @@ bindsym $mod+r mode "resize"
 
 
 ## Custom keyboard shortcuts
-bindsym $mod+apostrophe exec xterm
-bindsym XF86AudioLowerVolume exec "amixer set Master 5%-"
-bindsym XF86AudioRaiseVolume exec "amixer set Master 5%+"
-bindsym XF86AudioMute exec "amixer -D pulse sset Master toggle"
+bindsym $mod+apostrophe exec termite
+bindsym XF86AudioLowerVolume exec "amixer set Master 5%-"; exec pkill -RTMIN+10 i3blocks
+bindsym XF86AudioRaiseVolume exec "amixer set Master 5%+"; exec pkill -RTMIN+10 i3blocks
+bindsym XF86AudioMute exec "amixer -D pulse sset Master toggle"; exec pkill -RTMIN+10 i3blocks
 #bindsym NoSymbol exec "toggle_mic"
 bindsym XF86Launch1 exec "gnome-screenshot -i -a"
 #bindsym $mod+n exec nautilus
@@ -131,8 +131,8 @@ bindsym $mod + y exec octavestart.sh
 #bindsym $mod + z exec weatherfind.sh 
 bindsym $mod + c exec "xterm -e terminal-parrot"
 #Mouse control changes for changing eagle controls from pan to scroll 
-bindsym $mod + x exec "xinput set-prop 13 'Evdev Wheel Emulation Button' 3"
-bindsym $mod + z exec "xinput set-prop 13 'Evdev Wheel Emulation Button' 2"
+bindsym $mod + x exec "xinput set-prop 12 'Evdev Wheel Emulation Button' 3"
+bindsym $mod + z exec "xinput set-prop 12 'Evdev Wheel Emulation Button' 2"
 
 bindsym XF86RotateWindows exec "xrandr --output LVDS1 --rotate left"
 bindsym XF86TaskPane exec "xrandr --output LVDS1 --rotate normal"
@@ -141,6 +141,7 @@ bindsym $mod+Right exec "echo n > ~/.config/pianobar/ctl"
 
 for_window [title= "terminal-parrot"] floating enable
 for_window [title='display-im6'] floating enable
+for_window [instance="guake"] floating enable
 ## Set theme color variables
 set $blue #0087E8
 set $black #040404
@@ -160,7 +161,7 @@ client.urgent           $orange $orange $black
 
 ## Statusbar
 bar {
-    status_command i3status
+    status_command i3blocks
 #    tray_output primary
     position top
 }
@@ -172,6 +173,5 @@ bar {
 #for_window [title=".*Shutter.*"] floating enable
 
 ## Begin startup script
-
 exec ~/.config/i3/startup.sh
 
